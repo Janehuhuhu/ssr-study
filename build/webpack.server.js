@@ -9,13 +9,13 @@ module.exports = merge(baseConfig, {
     server: path.resolve(__dirname, '../src/server-entry.js')
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     libraryTarget: 'commonjs2',
     filename: '[name].bundle.js'
   },
   target: 'node', // 要给node使用
   plugins: [
-    // new ServerRenderPlugin(),
+    new ServerRenderPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../public/index-ssr.html'),
       filename: 'index-ssr.html',

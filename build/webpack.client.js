@@ -9,8 +9,8 @@ module.exports = merge(baseConfig, {
     client: path.resolve(__dirname, '../src/client-entry')
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    path: path.resolve(__dirname, '../dist'),
+    filename: '[name].bundle.js',
   },
   mode: 'development',
   plugins: [
