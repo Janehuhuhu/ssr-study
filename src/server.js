@@ -16,16 +16,30 @@ const serverRender = VueServerRender.createBundleRenderer(serverBundle, {
   clientManifest // 渲染的时候可以找到客户端的js文件，自动引入到html
 })
 
-
+// 首页访问，不能用 /，会导致静态资源也访问到这里，无法正确读取到正确的静态资源
 server.use('/index', async (req, res) => {
-    const str = await new Promise((resolve, reject) => {
-      serverRender.renderToString((err, data) => {
-        if (err) {
-          reject(err)
-        }
-        resolve(data)
-      })
+  const str = await new Promise((resolve, reject) => {
+    serverRender.renderToString({ url: '/index' }, (err, data) => {
+      if (err) {
+        reject(err)
+      }
+      resolve(data)
     })
+  })
+  res.send(str)
+})
+
+// 如果匹配不到已有资源，会执行此逻辑
+// 如果服务器没有路径，会渲染当前 App.vue, 即执行里面的 router.push找到对应路径
+server.use(async (req, res) => {
+  const str = await new Promise((resolve, reject) => {
+    serverRender.renderToString({ url: req.url }, (err, data) => {
+      if (err) {
+        reject(err)
+      }
+      resolve(data)
+    })
+  })
   res.send(str)
 })
 
