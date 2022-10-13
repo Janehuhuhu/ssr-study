@@ -1,7 +1,4 @@
 const express = require('express')
-const serveStatic = require('serve-static')
-
-const Vue = require('vue')
 const VueServerRender = require('vue-server-renderer')
 const path = require('path')
 const fs = require('fs')
@@ -19,26 +16,20 @@ const serverRender = VueServerRender.createBundleRenderer(serverBundle, {
   clientManifest // 渲染的时候可以找到客户端的js文件，自动引入到html
 })
 
-// const vm = new Vue({
-//   data() {
-//     return { msg: '我是一条消息' }
-//   },
-//   template: `<div>{{msg}}</div>`
-// })
 
-// server.use('/index.html', async (req, res) => {
-//   const str = await new Promise((resolve, reject) => {
-//     serverRender.renderToString((err, data) => {
-//       if (err) {
-//         reject(err)
-//       }
-//       resolve(data)
-//     })
-//   })
-//   res.send(str)
-// })
-console.log('***', path.join(__dirname, '../dist'))
-// server.use(express.static(path.join(__dirname, '../dist')))
+server.use('/index', async (req, res) => {
+    const str = await new Promise((resolve, reject) => {
+      serverRender.renderToString((err, data) => {
+        if (err) {
+          reject(err)
+        }
+        resolve(data)
+      })
+    })
+  res.send(str)
+})
+
+// 放在路径访问后面，避免先访问静态资源地址dist/index
 server.use(express.static('dist'))
 
 server.listen(3000)
