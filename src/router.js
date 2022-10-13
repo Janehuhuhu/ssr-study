@@ -10,7 +10,7 @@ export default () => {
     mode: 'history',
     routes: [
       {
-        path: '/',
+        path: '/index',
         component: Foo
       },
       {

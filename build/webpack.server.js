@@ -15,7 +15,7 @@ module.exports = merge(baseConfig, {
   },
   target: 'node', // 要给node使用
   plugins: [
-    // new ServerRenderPlugin(),
+    new ServerRenderPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../public/index-ssr.html'),
       filename: 'index-ssr.html',

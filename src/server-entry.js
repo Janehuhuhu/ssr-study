@@ -2,6 +2,7 @@ import CreateApp from './main'
 
 
 export default () => {
-  const { app } = CreateApp()
+  const { app, router } = CreateApp()
+  router.push('/index')
   return app
 }
