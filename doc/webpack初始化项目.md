@@ -114,6 +114,11 @@ module.exports = {
 
 
 
+静态资源无法访问
+- static 默认是相对于服务启动的路径
+- 先访问路径/，send 已经结束，不会走后面的静态资源读取服务，所以用/index代替/, 避免静态资源地址读取又走到路径/中
+- static 访问放在路径访问之后
+
 https://blog.csdn.net/m0_55980331/article/details/116027871
 https://blog.csdn.net/qq_34425377/article/details/120966667
 https://blog.csdn.net/intrwins/article/details/125384393
