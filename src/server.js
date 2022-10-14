@@ -29,21 +29,27 @@ server.use('/index', async (req, res) => {
   res.send(str)
 })
 
+// 放在路径访问后面，避免先访问静态资源地址dist/index
+server.use(express.static('dist'))
+
 // 如果匹配不到已有资源，会执行此逻辑
 // 如果服务器没有路径，会渲染当前 App.vue, 即执行里面的 router.push找到对应路径
 server.use(async (req, res) => {
-  const str = await new Promise((resolve, reject) => {
-    serverRender.renderToString({ url: req.url }, (err, data) => {
-      if (err) {
-        reject(err)
-      }
-      resolve(data)
+  try {
+    const str = await new Promise((resolve, reject) => {
+      serverRender.renderToString({ url: req.url }, (err, data) => {
+        if (err) {
+          reject(err)
+        }
+        resolve(data)
+      })
     })
-  })
-  res.send(str)
+    res.send(str)
+  } catch(e) {
+    res.send('404')
+  }
 })
 
-// 放在路径访问后面，避免先访问静态资源地址dist/index
-server.use(express.static('dist'))
+
 
 server.listen(3000)
