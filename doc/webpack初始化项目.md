@@ -113,7 +113,7 @@ module.exports = {
 
 
 
-路由
+集成路由系统
 - 静态资源无法访问
   - static 默认是相对于服务启动的路径
   - 先访问路径/，send 已经结束，不会走后面的静态资源读取服务，所以用/index代替/, 避免静态资源地址读取又走到路径/中
@@ -124,8 +124,14 @@ module.exports = {
 - 其他路由页面刷新找不到资源
 - 异步返回服务端实例，因为可能涉及到异步组件
 - 路由不存在时处理
+- 面试问题：vue ssr 中的路由跳转规则（首次渲染走的时服务端渲染，切换路由时走的时客户端渲染）
 
 https://blog.csdn.net/m0_55980331/article/details/116027871
 https://blog.csdn.net/qq_34425377/article/details/120966667
 https://blog.csdn.net/intrwins/article/details/125384393
 
+
+集成vuex
+- 配置，流程走通（asyncData）
+- 服务端最新状态替换客户端状态（store中用window数据更新store）
+- 客户端切换路由的时候vuex状态丢失（asynData和mounted需同时存在）

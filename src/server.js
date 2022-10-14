@@ -34,6 +34,7 @@ server.use(express.static('dist'))
 
 // 如果匹配不到已有资源，会执行此逻辑
 // 如果服务器没有路径，会渲染当前 App.vue, 即执行里面的 router.push找到对应路径
+// 按照路由刷新页面时会走到这里
 server.use(async (req, res) => {
   try {
     const str = await new Promise((resolve, reject) => {
