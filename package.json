@@ -35,6 +35,7 @@
     "vue": "2.6.11",
     "vue-router": "^3.6.5",
     "vue-server-renderer": "2.6.11",
-    "vue-template-compiler": "2.6.11"
+    "vue-template-compiler": "2.6.11",
+    "vuex": "^3.6.2"
   }
 }

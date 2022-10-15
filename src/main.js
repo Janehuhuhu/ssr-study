@@ -7,8 +7,9 @@ export default () => {
   const router = createRouter()
   const store = createStore()
   const app = new Vue({
+    router,
+    store,
     render: h => h(App),
-    router
   })
   return { app, router, store }
 }

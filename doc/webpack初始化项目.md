@@ -129,6 +129,8 @@ module.exports = {
 https://blog.csdn.net/m0_55980331/article/details/116027871
 https://blog.csdn.net/qq_34425377/article/details/120966667
 https://blog.csdn.net/intrwins/article/details/125384393
+- vuex和vue版本
+https://blog.csdn.net/weixin_40944062/article/details/113251690
 
 
 集成vuex
