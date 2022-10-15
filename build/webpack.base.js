@@ -13,9 +13,6 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue']
   },
-  // output: {
-  //   publicPath: 'static'
-  // },
   module: {
     rules: [
       {

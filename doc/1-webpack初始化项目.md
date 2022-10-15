@@ -5,6 +5,10 @@ yarn add webpack webpack-cli webpack-dev-server vue vue-loader vue-template-comp
 ```
 注意点：
 - `vue`、`vue-loader`、`vue-template-compiler` 需配套使用，注意 `vue-template-compiler` 和 `vue` 版本需保持一致（如用 `vue-server-renderer` 版本也需要保持一致），这里选择的版本是 *2.6.11*, `vue-loader` 选择 *15.9.0*
+- `vue` 和 `vue-router` 的版本需要保持对应， `vue2.x` 对应 `vue-router3.x`, `vue3.x` 对应 `vue-router4.x`。`vuex` 也是同样，[详见](https://blog.csdn.net/weixin_40944062/article/details/113251690)
+- `html-webpack-plugin` 和 `webpack` 的版本需要保持对应，即
+`webpack4`对应`html-webpack-plugin4.x`, [详见](https://blog.csdn.net/m0_55980331/article/details/116027871)
+- [其他版本参考 ssr 样例](https://blog.csdn.net/qq_34425377/article/details/120966667)
 
 <br>
 <br>
@@ -126,11 +130,6 @@ module.exports = {
 - 路由不存在时处理
 - 面试问题：vue ssr 中的路由跳转规则（首次渲染走的时服务端渲染，切换路由时走的时客户端渲染）
 
-https://blog.csdn.net/m0_55980331/article/details/116027871
-https://blog.csdn.net/qq_34425377/article/details/120966667
-https://blog.csdn.net/intrwins/article/details/125384393
-- vuex和vue版本
-https://blog.csdn.net/weixin_40944062/article/details/113251690
 
 
 集成vuex
