@@ -16,6 +16,7 @@ const serverRender = VueServerRender.createBundleRenderer(serverBundle, {
   clientManifest // 渲染的时候可以找到客户端的js文件，自动引入到html
 })
 
+
 // 首页访问，不能用 /，会导致静态资源也访问到这里，无法正确读取到正确的静态资源
 server.use('/index', async (req, res) => {
   const str = await new Promise((resolve, reject) => {
@@ -51,6 +52,7 @@ server.use(async (req, res) => {
   }
 })
 
-
+// 放此位置也可
+// server.use(express.static('dist'))
 
 server.listen(3000)

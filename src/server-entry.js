@@ -18,12 +18,10 @@ export default (context) => {
       })).then(() => {
         // promise.all 中逻辑会改变state
         // 执行如下逻辑代码中会插入<script>window.__INITIAL_STATE__={"name":"初始值"}</script>
-        // context.state = store.state
+        context.state = store.state
         // 路由不存在时的处理
         !matchs.length && reject({ code: 404 })
         resolve(app)
-        context.state = store.state
-
       })
     }, reject)
   })
