@@ -14,3 +14,8 @@
 - [视频教程](https://www.bilibili.com/video/BV1TB4y1T7Vx/?p=3&vd_source=65105152fda76ce4f74f171879bbdcac)
 - [服务端渲染 (SSR)](https://cn.vuejs.org/guide/scaling-up/ssr.html)
 - [vue-server-renderer实现vue项目改造服务端渲染](https://segmentfault.com/a/1190000038428675)
+
+### 3. 面试
+- [SSR是什么？Vue中怎么实现](https://fe.ecool.fun/topic-answer/4a0ca854-e576-4046-a740-f1ef8d4060c9?orderBy=updateTime&order=desc&tagId=14)
+- [CSR和SSR分别是什么](https://fe.ecool.fun/topic-answer/c50852c5-6471-4bd3-8392-02ab58e4c726)
+- [面试常见问题归纳](./doc/5-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98.md)
